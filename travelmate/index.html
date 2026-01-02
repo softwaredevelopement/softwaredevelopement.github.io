@@ -1,9 +1,599 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TravelMate - Your AI-powered trip planning companion. Plan perfect trips with intelligent itineraries, smart scheduling, and interactive maps.">
+    <meta property="og:title" content="TravelMate - AI-Powered Trip Planning">
+    <meta property="og:description" content="Transform your travel planning with AI. Get personalized itineraries in minutes, not hours.">
+    <meta property="og:type" content="website">
+    <meta name="keywords" content="travel planning, AI trip planner, itinerary generator, travel app, vacation planning">
+    <title>TravelMate - AI-Powered Trip Planning Made Simple</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #2d3748;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f7fafc 0%, #e6f2ff 100%);
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .benefit-check {
+            background: #48bb78;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .benefit-item p {
+            font-size: 1.1rem;
+            color: #2d3748;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #2d3748;
+        }
+
+        .step p {
+            color: #4a5568;
+        }
+
+        /* Legal Links Section */
+        .legal-links {
+            padding: 4rem 2rem;
+            background: #2d3748;
+            color: white;
+        }
+
+        .legal-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .legal-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .legal-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .legal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .legal-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .legal-card .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #a0aec0;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: #90cdf4;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: #63b3ed;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero .description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .features-grid,
+            .steps {
+                gap: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
 <body>
-<h1>TravelMate</h1>
-<p>Here you can find our policy links</p>
-<a href="https://softwaredevelopement.github.io/travelmate/privacy/">Privacy Policy</a>
-<a href="https://softwaredevelopement.github.io/travelmate/terms/">Terms of service</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate-in">
+            <h1>🌍 TravelMate</h1>
+            <p class="tagline">Your AI-Powered Trip Planning Companion</p>
+            <p class="description">
+                Transform hours of research into minutes of planning. Let artificial intelligence create personalized travel itineraries tailored to your preferences, complete with smart scheduling, interactive maps, and real-time AI assistance.
+            </p>
+            <div class="cta-buttons">
+                <a href="#features" class="btn btn-primary">Explore Features</a>
+                <a href="#legal" class="btn btn-secondary">Legal Information</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features, Effortless Planning</h2>
+            <p class="section-subtitle">Everything you need to plan the perfect trip, powered by cutting-edge AI technology</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Itineraries</h3>
+                    <p>
+                        Generate complete trip itineraries in seconds using advanced AI (Claude & Gemini). Just tell us your destination, dates, and preferences—we handle the rest.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Interactive AI Chat</h3>
+                    <p>
+                        Chat with our AI assistant to refine your plans, swap activities, adjust timing, or get recommendations. It's like having a personal travel expert in your pocket.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Smart Calendar View</h3>
+                    <p>
+                        Visualize your trip in day, 3-day, or week views. See your entire schedule at a glance with beautiful timeline layouts and color-coded activities.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Interactive Maps</h3>
+                    <p>
+                        See all your activities on Google Maps with color-coded markers. Filter by day, cluster nearby locations, and optimize your routes effortlessly.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Drag & Drop Scheduling</h3>
+                    <p>
+                        Easily customize your itinerary with intuitive drag-and-drop. Reorder activities, move them between days, or delete what doesn't fit.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud Sync & Offline</h3>
+                    <p>
+                        Your trips sync automatically across all your devices via Firebase. Access your itineraries offline—perfect for when you're traveling without data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose TravelMate?</h2>
+            <p class="section-subtitle">Save time, reduce stress, and create better travel experiences</p>
+
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <p><strong>Save Hours of Research:</strong> No more jumping between 20 browser tabs</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <p><strong>Personalized Recommendations:</strong> AI learns your preferences and style</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <p><strong>Smart Scheduling:</strong> Activities organized by location and opening hours</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <p><strong>Budget-Friendly:</strong> Currently free to use with all features unlocked</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <p><strong>Multi-Trip Management:</strong> Plan and track multiple trips simultaneously</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-check">✓</div>
+                    <p><strong>Real-Time Updates:</strong> Modify plans on the go with instant sync</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">From idea to itinerary in three simple steps</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tell Us Your Plans</h3>
+                    <p>
+                        Enter your destination, travel dates, number of people, budget, and preferences. The more details you provide, the better your itinerary.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Generates Your Itinerary</h3>
+                    <p>
+                        Our AI analyzes millions of data points to create a personalized day-by-day schedule with activities, timings, locations, and prices.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Customize & Enjoy</h3>
+                    <p>
+                        Review your itinerary, make adjustments with drag-and-drop or AI chat, view on maps and calendar, then hit the road with confidence!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Links Section -->
+    <section id="legal" class="legal-links">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Legal Information</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">
+                Your privacy and security are our top priorities. Review our policies below.
+            </p>
+
+            <div class="legal-cards">
+                <div class="legal-card">
+                    <div class="legal-icon">🔒</div>
+                    <h3>Privacy Policy</h3>
+                    <p>
+                        Learn how we collect, use, and protect your personal information. We're transparent about our data practices and committed to your privacy.
+                    </p>
+                    <a href="https://softwaredevelopement.github.io/travelmate/privacy/" class="btn btn-primary">Read Privacy Policy</a>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-icon">📋</div>
+                    <h3>Terms of Service</h3>
+                    <p>
+                        Understand your rights and responsibilities when using TravelMate. Includes important AI disclaimer and liability information.
+                    </p>
+                    <a href="https://softwaredevelopement.github.io/travelmate/terms/" class="btn btn-primary">Read Terms of Service</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(252, 129, 129, 0.2); border-radius: 12px; border: 2px solid rgba(252, 129, 129, 0.4);">
+                <p style="color: white; font-size: 1rem; max-width: 700px; margin: 0 auto;">
+                    <strong>⚠️ Important Notice:</strong> TravelMate uses AI to generate travel recommendations. While we strive for accuracy, AI-generated content may contain errors including incorrect opening hours, locations, or prices. <strong>Always verify information before making travel decisions.</strong> See our Terms of Service for full details.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 TravelMate. All rights reserved.</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://softwaredevelopement.github.io/travelmate/privacy/">Privacy Policy</a> |
+                <a href="https://softwaredevelopement.github.io/travelmate/termss/">Terms of Service</a> |
+                <a href="mailto:pivotmasterapps@gmail.com">Contact Us</a>
+            </p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #718096;">
+                Powered by Claude AI, Google Gemini, Firebase & Google Maps
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
