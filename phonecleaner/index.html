@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storage Cleaner — Clean, Organize & Free Up Space</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1976d2 0%, #00acc1 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 100px;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-primary { background: white; color: #1976d2; }
+    .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.6); }
+
+    /* FEATURES */
+    section { padding: 80px 20px; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-header h2 { font-size: 2rem; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; }
+    .section-header p { color: #666; font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1976d2 0%, #00acc1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: #1a1a2e; }
+    .feature-card p { font-size: 0.95rem; color: #666; }
+
+    /* HOW IT WORKS */
+    .how-section { background: white; }
+    .steps { display: flex; gap: 32px; max-width: 900px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .step { text-align: center; flex: 1; min-width: 220px; }
+    .step-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1976d2, #00acc1);
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; color: #1a1a2e; }
+    .step p { font-size: 0.92rem; color: #666; }
+
+    /* LEGAL */
+    #legal { background: #f5f7fa; }
+    .legal-box {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .legal-box p { color: #666; margin-bottom: 32px; font-size: 1rem; }
+    .legal-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .legal-link {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .legal-link:hover { transform: translateY(-2px); }
+    .legal-link-primary {
+      background: linear-gradient(135deg, #1976d2, #00acc1);
+      color: white;
+    }
+    .legal-link-secondary {
+      border: 2px solid #1976d2;
+      color: #1976d2;
+    }
+    .disclaimer {
+      margin-top: 24px;
+      font-size: 0.82rem;
+      color: #999;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 36px 20px;
+      font-size: 0.9rem;
+    }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: white; }
+    footer .footer-links { margin-bottom: 12px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero { padding: 60px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Storage Cleaner for Android</div>
+    <h1>Clean, Organize &amp; Free Up Space on Your Phone</h1>
+    <p>Intelligently scan for duplicates, junk files, large media, and more — all processed on-device for complete privacy.</p>
+    <div class="hero-buttons">
+      <a href="#features" class="btn btn-primary">Explore Features</a>
+      <a href="#legal" class="btn btn-secondary">Legal Information</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-header">
+      <h2>Everything You Need to Reclaim Storage</h2>
+      <p>A complete toolkit for keeping your Android device fast, clean, and organized.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128269;</div>
+        <h3>Duplicate Finder</h3>
+        <p>Detect exact and near-duplicate photos using MD5 hashing and perceptual comparison. Keep the best, delete the rest.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128247;</div>
+        <h3>Similar &amp; Blurry Photos</h3>
+        <p>Identify visually similar shots and automatically flag blurry or low-quality images for review and removal.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128172;</div>
+        <h3>WhatsApp Cleaner</h3>
+        <p>Find and clear WhatsApp media — photos, videos, audio, and documents — that pile up over time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128190;</div>
+        <h3>Large Files</h3>
+        <p>Quickly surface the biggest files on your device so you can decide what to keep or delete.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128444;</div>
+        <h3>Screenshots &amp; Downloads</h3>
+        <p>Review and bulk-delete accumulated screenshots and downloaded files you no longer need.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128267;</div>
+        <h3>App Storage Insights</h3>
+        <p>See which apps are consuming the most storage so you can clear caches or uninstall with confidence.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128267;</div>
+        <h3>Battery Insights</h3>
+        <p>Understand your device's battery health and usage patterns at a glance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <h3>On-Device Privacy</h3>
+        <p>All scanning and analysis happens entirely on your device. Your files are never uploaded to any server.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <p>Three simple steps to a cleaner, faster phone.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Grant Storage Access</h3>
+        <p>Allow the app to read your device storage so it can scan for files, photos, and media.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Run a Quick Scan</h3>
+        <p>The app analyzes your storage in seconds and organizes results by category.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Review &amp; Clean</h3>
+        <p>Preview items before deleting. You're always in control — nothing is removed without your confirmation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <section id="legal">
+    <div class="section-header">
+      <h2>Legal Information</h2>
+      <p>Your privacy matters. Read our policies to understand how we handle your data.</p>
+    </div>
+    <div class="legal-box">
+      <p>We are committed to being transparent about how Storage Cleaner works and what data (if any) leaves your device.</p>
+      <div class="legal-links">
+        <a href="privacy/" class="legal-link legal-link-primary">Privacy Policy</a>
+        <a href="terms/" class="legal-link legal-link-secondary">Terms of Service</a>
+      </div>
+      <p class="disclaimer">Deleting files through Storage Cleaner is permanent. Always review items carefully before confirming deletion.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="privacy/">Privacy Policy</a>
+      <a href="terms/">Terms of Service</a>
+      <a href="mailto:pivotmasterapps@gmail.com">Contact Us</a>
+    </div>
+    <p>&copy; 2026 Pivot Master Apps. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
