@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pivot Master Apps — Independent Android App Developer</title>
+  <meta name="description" content="Pivot Master Apps builds practical, privacy-focused Android applications available on Google Play. We use Google Ads to promote our apps and reach the right users." />
+  <meta property="og:title" content="Pivot Master Apps" />
+  <meta property="og:description" content="Independent Android app developer building practical tools for everyday life." />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      background: #0d1b2a;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: white; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b4f72 60%, #2471a3 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 20px 110px;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 22px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    .btn-primary { background: white; color: #1b4f72; }
+    .btn-secondary { background: rgba(255,255,255,0.12); color: white; border: 2px solid rgba(255,255,255,0.5); }
+
+    /* SECTIONS */
+    section { padding: 80px 20px; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-header h2 { font-size: 2rem; font-weight: 700; color: #0d1b2a; margin-bottom: 12px; }
+    .section-header p { color: #666; font-size: 1.05rem; max-width: 520px; margin: 0 auto; }
+
+    /* ABOUT */
+    .about-section { background: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .about-card {
+      background: #f5f7fa;
+      border-radius: 16px;
+      padding: 32px 28px;
+      border-left: 4px solid #2471a3;
+    }
+    .about-card .icon { font-size: 2rem; margin-bottom: 16px; }
+    .about-card h3 { font-size: 1.05rem; font-weight: 600; color: #0d1b2a; margin-bottom: 10px; }
+    .about-card p { font-size: 0.95rem; color: #555; }
+
+    /* APPS */
+    .apps-section { background: #f5f7fa; }
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .app-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .app-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .app-icon.travel { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .app-icon.cleaner { background: linear-gradient(135deg, #1976d2, #00acc1); }
+    .app-icon.kobsmart { background: linear-gradient(135deg, #f7971e, #ffd200); }
+    .app-card h3 { font-size: 1.25rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
+    .app-card .tag {
+      display: inline-block;
+      background: #eef2ff;
+      color: #3730a3;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .app-card p { font-size: 0.95rem; color: #555; flex-grow: 1; margin-bottom: 24px; }
+    .app-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
+    .app-link {
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .app-link:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+    .app-link-primary { background: #0d1b2a; color: white; }
+    .app-link-secondary { border: 2px solid #0d1b2a; color: #0d1b2a; }
+
+    /* GOOGLE ADS */
+    .ads-section { background: white; }
+    .ads-box {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .ads-box .intro {
+      background: linear-gradient(135deg, #0d1b2a 0%, #2471a3 100%);
+      border-radius: 20px;
+      padding: 44px 48px;
+      color: white;
+      margin-bottom: 32px;
+    }
+    .ads-box .intro h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; }
+    .ads-box .intro p { font-size: 1rem; opacity: 0.9; line-height: 1.7; }
+    .ads-use-cases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .use-case {
+      background: #f5f7fa;
+      border-radius: 14px;
+      padding: 24px 22px;
+      border-top: 3px solid #2471a3;
+    }
+    .use-case h4 { font-size: 0.98rem; font-weight: 600; color: #0d1b2a; margin-bottom: 8px; }
+    .use-case p { font-size: 0.88rem; color: #555; }
+
+    /* LEGAL */
+    .legal-section { background: #f5f7fa; }
+    .legal-box {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .legal-box p { color: #666; margin-bottom: 32px; font-size: 1rem; }
+    .legal-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .legal-link {
+      display: inline-block;
+      padding: 13px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .legal-link:hover { transform: translateY(-2px); }
+    .legal-link-primary { background: linear-gradient(135deg, #0d1b2a, #2471a3); color: white; }
+    .legal-link-secondary { border: 2px solid #0d1b2a; color: #0d1b2a; }
+
+    /* CONTACT */
+    .contact-section { background: white; }
+    .contact-box {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-box p { font-size: 1rem; color: #555; margin-bottom: 24px; }
+    .contact-email {
+      display: inline-block;
+      background: #0d1b2a;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .contact-email:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* FOOTER */
+    footer {
+      background: #0d1b2a;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.88rem;
+    }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; margin: 0 12px; transition: color 0.2s; }
+    footer a:hover { color: white; }
+    .footer-links { margin-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+    .footer-divider { margin: 0 4px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 70px 20px 80px; }
+      .ads-box .intro { padding: 32px 24px; }
+      nav { padding: 14px 20px; }
+      .nav-links a { margin-left: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">Pivot Master Apps</a>
+    <div class="nav-links">
+      <a href="#apps">Our Apps</a>
+      <a href="#advertising">Advertising</a>
+      <a href="#legal">Legal</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Independent Android Developer</div>
+    <h1>Practical Apps Built for Everyday Life</h1>
+    <p>Pivot Master Apps designs and publishes Android applications focused on simplicity, privacy, and real-world utility — available on Google Play.</p>
+    <div class="hero-buttons">
+      <a href="#apps" class="btn btn-primary">View Our Apps</a>
+      <a href="#advertising" class="btn btn-secondary">Advertising Info</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="section-header">
+      <h2>About Pivot Master Apps</h2>
+      <p>We are an independent mobile software developer publishing Android apps on Google Play Store.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon">&#128241;</div>
+        <h3>Android-First Development</h3>
+        <p>We specialize in native Android development, building apps that leverage the full capabilities of Android devices while respecting user privacy and device performance.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">&#128274;</div>
+        <h3>Privacy by Design</h3>
+        <p>Our apps are built with a privacy-first mindset. Where possible, all processing happens on-device. We collect only the data strictly necessary for functionality.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">&#128640;</div>
+        <h3>Google Play Distribution</h3>
+        <p>All Pivot Master Apps titles are distributed exclusively through Google Play Store, ensuring security, regular updates, and a trusted installation experience for users.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPS -->
+  <section class="apps-section" id="apps">
+    <div class="section-header">
+      <h2>Our Applications</h2>
+      <p>Each app is designed to solve a specific, everyday problem as simply and efficiently as possible.</p>
+    </div>
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <div class="app-icon travel">&#9992;&#65039;</div>
+        <h3>TravelMate</h3>
+        <span class="tag">AI Trip Planning</span>
+        <p>An AI-powered trip planning assistant that transforms hours of travel research into a personalized itinerary in minutes. Features interactive maps, smart scheduling, and cloud sync across devices.</p>
+        <div class="app-links">
+          <a href="https://softwaredevelopement.github.io/travelmate/" class="app-link app-link-primary">Visit Website</a>
+          <a href="https://softwaredevelopement.github.io/travelmate/privacy/" class="app-link app-link-secondary">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-icon cleaner">&#129529;</div>
+        <h3>Storage Cleaner</h3>
+        <span class="tag">Phone Utility</span>
+        <p>A comprehensive on-device storage management tool for Android. Finds and removes duplicate photos, junk files, large media, and WhatsApp clutter — entirely on-device, with no data uploaded to servers.</p>
+        <div class="app-links">
+          <a href="https://softwaredevelopement.github.io/phonecleaner/" class="app-link app-link-primary">Visit Website</a>
+          <a href="https://softwaredevelopement.github.io/phonecleaner/privacy/" class="app-link app-link-secondary">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-icon kobsmart">&#128722;</div>
+        <h3>KøbSmart</h3>
+        <span class="tag">Smart Shopping</span>
+        <p>A smart shopping companion that helps users organize shopping lists, compare prices, and make better purchasing decisions. Designed for efficient and organized everyday shopping.</p>
+        <div class="app-links">
+          <a href="https://softwaredevelopement.github.io/kobsmart/" class="app-link app-link-primary">Visit Website</a>
+          <a href="https://softwaredevelopement.github.io/kobsmart/privacy/" class="app-link app-link-secondary">Privacy Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GOOGLE ADS / ADVERTISING -->
+  <section class="ads-section" id="advertising">
+    <div class="section-header">
+      <h2>Google Ads &amp; Advertising</h2>
+      <p>How Pivot Master Apps uses Google's advertising products to reach users and grow our app portfolio.</p>
+    </div>
+    <div class="ads-box">
+      <div class="intro">
+        <h3>Our Use of the Google Ads API</h3>
+        <p>
+          Pivot Master Apps uses the Google Ads API to programmatically manage app promotion campaigns across Google's advertising network. Our primary goal is user acquisition — running Google App Campaigns that serve our Android apps to relevant users on Search, Play Store, YouTube, and the Display Network. We use the API to create, monitor, and optimize these campaigns: adjusting bids, analyzing performance data, managing budgets, and generating reports — all in a streamlined, automated workflow tailored to independent app developers.
+        </p>
+      </div>
+      <div class="ads-use-cases">
+        <div class="use-case">
+          <h4>App Install Campaigns</h4>
+          <p>We run Google App Campaigns to drive installs of our Android apps through Search, Play Store, YouTube, and Display placements.</p>
+        </div>
+        <div class="use-case">
+          <h4>Campaign Management</h4>
+          <p>The Google Ads API allows us to create, pause, update, and manage ad campaigns programmatically without manual intervention in the UI.</p>
+        </div>
+        <div class="use-case">
+          <h4>Bid &amp; Budget Optimization</h4>
+          <p>We use the API to automate bid adjustments and daily budget controls based on real-time cost-per-install performance across our apps.</p>
+        </div>
+        <div class="use-case">
+          <h4>Performance Reporting</h4>
+          <p>We pull campaign metrics — impressions, clicks, installs, and cost data — via the API to track ROI and inform our publishing decisions.</p>
+        </div>
+        <div class="use-case">
+          <h4>AdMob Integration</h4>
+          <p>Our apps display in-app ads via Google AdMob (publisher ID: pub-2159500504641406), generating ad revenue to support free app access for users.</p>
+        </div>
+        <div class="use-case">
+          <h4>Multi-App Portfolio</h4>
+          <p>With multiple live apps across different categories, the API enables us to manage advertising for our entire portfolio from a single integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <section class="legal-section" id="legal">
+    <div class="section-header">
+      <h2>Legal &amp; Compliance</h2>
+      <p>Transparency about how we operate and how we handle data is central to our values.</p>
+    </div>
+    <div class="legal-box">
+      <p>Our company-wide policies describe how Pivot Master Apps collects, uses, and protects data across all of our products and services.</p>
+      <div class="legal-links">
+        <a href="privacy/" class="legal-link legal-link-primary">Privacy Policy</a>
+        <a href="terms/" class="legal-link legal-link-secondary">Terms of Service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-header">
+      <h2>Get in Touch</h2>
+      <p>Questions about our apps, policies, or advertising partnerships? We respond to all inquiries.</p>
+    </div>
+    <div class="contact-box">
+      <p>For support, business inquiries, advertising questions, or data requests, contact us directly at:</p>
+      <a href="mailto:pivotmasterapps@gmail.com" class="contact-email">pivotmasterapps@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="#apps">Our Apps</a>
+      <span class="footer-divider">|</span>
+      <a href="#advertising">Advertising</a>
+      <span class="footer-divider">|</span>
+      <a href="privacy/">Privacy Policy</a>
+      <span class="footer-divider">|</span>
+      <a href="terms/">Terms of Service</a>
+      <span class="footer-divider">|</span>
+      <a href="mailto:pivotmasterapps@gmail.com">Contact</a>
+    </div>
+    <p>&copy; 2026 Pivot Master Apps. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
