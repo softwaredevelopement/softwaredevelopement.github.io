@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pro PDF Editor — View, Edit, Sign &amp; Organize PDFs</title>
+  <meta name="description" content="Pro PDF Editor is an Android app to view, edit, annotate, sign, merge, split and compress PDF files — processed entirely on your device." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #c62828 0%, #ef6c00 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 100px;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-primary { background: white; color: #c62828; }
+    .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.6); }
+
+    /* FEATURES */
+    section { padding: 80px 20px; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-header h2 { font-size: 2rem; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; }
+    .section-header p { color: #666; font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #c62828 0%, #ef6c00 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: #1a1a2e; }
+    .feature-card p { font-size: 0.95rem; color: #666; }
+
+    /* HOW IT WORKS */
+    .how-section { background: white; }
+    .steps { display: flex; gap: 32px; max-width: 900px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .step { text-align: center; flex: 1; min-width: 220px; }
+    .step-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c62828, #ef6c00);
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; color: #1a1a2e; }
+    .step p { font-size: 0.92rem; color: #666; }
+
+    /* LEGAL */
+    #legal { background: #f5f7fa; }
+    .legal-box {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .legal-box p { color: #666; margin-bottom: 32px; font-size: 1rem; }
+    .legal-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .legal-link {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .legal-link:hover { transform: translateY(-2px); }
+    .legal-link-primary {
+      background: linear-gradient(135deg, #c62828, #ef6c00);
+      color: white;
+    }
+    .legal-link-secondary {
+      border: 2px solid #c62828;
+      color: #c62828;
+    }
+    .disclaimer {
+      margin-top: 24px;
+      font-size: 0.82rem;
+      color: #999;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 36px 20px;
+      font-size: 0.9rem;
+    }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: white; }
+    footer .footer-links { margin-bottom: 12px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero { padding: 60px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Pro PDF Editor for Android</div>
+    <h1>View, Edit, Sign &amp; Organize PDFs on Your Phone</h1>
+    <p>A complete PDF toolkit — annotate, fill, merge, split and compress documents, all processed on-device for complete privacy.</p>
+    <div class="hero-buttons">
+      <a href="#features" class="btn btn-primary">Explore Features</a>
+      <a href="#legal" class="btn btn-secondary">Legal Information</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-header">
+      <h2>Everything You Need to Work with PDFs</h2>
+      <p>A full document workspace in your pocket — no desktop software required.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128196;</div>
+        <h3>Fast PDF Viewer</h3>
+        <p>Open large documents instantly with smooth scrolling, page thumbnails, text search, and a night-reading mode.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9999;</div>
+        <h3>Edit Text &amp; Images</h3>
+        <p>Correct typos, update details, and insert or replace images directly inside an existing PDF page.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128221;</div>
+        <h3>Annotate &amp; Highlight</h3>
+        <p>Highlight passages, add sticky notes, draw freehand, and add shapes or text boxes for review and markup.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9997;</div>
+        <h3>Fill &amp; Sign</h3>
+        <p>Complete forms and add a handwritten or imported signature to contracts and paperwork in seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128206;</div>
+        <h3>Merge, Split &amp; Reorder</h3>
+        <p>Combine several PDFs into one, extract a page range, or drag pages into a new order and rotate them.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128229;</div>
+        <h3>Compress PDF</h3>
+        <p>Shrink oversized documents so they fit email and upload limits, with control over the quality trade-off.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128260;</div>
+        <h3>Convert Files</h3>
+        <p>Turn photos and images into a PDF, or export any PDF page back out as an image — all locally.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <h3>Password Protection</h3>
+        <p>Encrypt a document with a password, or remove protection from a PDF you already have the password for.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128241;</div>
+        <h3>On-Device Privacy</h3>
+        <p>Every operation runs on your device. Your documents are never uploaded to any server or cloud service.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <p>Three simple steps from document to done.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Open Your Document</h3>
+        <p>Pick a PDF from your device storage, or open one straight from another app such as email or a browser.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Edit &amp; Annotate</h3>
+        <p>Use the editing, markup, signing, and page tools to make exactly the changes you need.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Save or Share</h3>
+        <p>Save over the original or export a new copy, then share it anywhere — nothing leaves your device unless you send it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <section id="legal">
+    <div class="section-header">
+      <h2>Legal Information</h2>
+      <p>Your privacy matters. Read our policies to understand how we handle your data.</p>
+    </div>
+    <div class="legal-box">
+      <p>We are committed to being transparent about how Pro PDF Editor works and what data (if any) leaves your device.</p>
+      <div class="legal-links">
+        <a href="privacy/" class="legal-link legal-link-primary">Privacy Policy</a>
+        <a href="terms/" class="legal-link legal-link-secondary">Terms of Service</a>
+      </div>
+      <p class="disclaimer">Saving changes over an original PDF is permanent. Keep a backup copy of important documents before editing.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="privacy/">Privacy Policy</a>
+      <a href="terms/">Terms of Service</a>
+      <a href="mailto:pivotmasterapps@gmail.com">Contact Us</a>
+    </div>
+    <p>&copy; 2026 Pivot Master Apps. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
