@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Virtual Closet</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<header>
+  <a class="back" href="../">&larr; Virtual Closet</a>
+  <h1>Privacy Policy</h1>
+  <div class="meta">Last updated 19 September 2026</div>
+</header>
+
+<div class="container">
+  <div class="card">
+    <p class="lede">Your wardrobe stays on your phone. A photo leaves the device only when you ask for a cutout or a 3D pass, and it is not stored once that is done.</p>
+    <p>This policy covers the Virtual Closet app for iOS and Android, published by Pivot Master Apps. Questions: <a href="mailto:pivotmasterapps@gmail.com">pivotmasterapps@gmail.com</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>1. What stays on your device</h2>
+    <p>Everything that makes up your wardrobe is stored only on your phone:</p>
+    <ul>
+      <li>The photographs you take or import, and the cutouts made from them.</li>
+      <li>The names, brands, colours, seasons and notes you add.</li>
+      <li>Your outfits and your calendar.</li>
+    </ul>
+    <p>None of this is uploaded to us, backed up by us, or visible to us. Delete the app and it is gone.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. What leaves your device, and when</h2>
+    <h3>Garment photos, only on request</h3>
+    <p>When you ask for a cutout or a 3D pass, that single image is sent over HTTPS to our server (DigitalOcean, Frankfurt), which forwards it to <strong>Google Gemini</strong> to do the work, and returns the result to your phone.</p>
+    <p>We do not keep a copy. We ask Google not to retain the request for model training or conversation history. Google processes it under its own terms as our processor; see <a href="https://ai.google.dev/gemini-api/terms">Google's Gemini API terms</a>.</p>
+    <p>If you never use cutouts or 3D, no photograph ever leaves your phone.</p>
+
+    <h3>Your account</h3>
+    <p>Signing in uses <strong>Firebase Authentication</strong> (Google). We receive and store a user ID, your email address, and the display name your provider gives us. That is what lets the server know whose allowance is being spent, and stops strangers spending it.</p>
+    <p>If you sign in with Apple and choose to hide your email, we only ever see Apple's relay address.</p>
+
+    <h3>Your allowance</h3>
+    <p>Our server keeps a count of how many cutouts and 3D passes your account has used this month, against your user ID. That is all it keeps.</p>
+
+    <h3>Subscriptions</h3>
+    <p>Payment is handled entirely by Apple or Google. We never see your card. We use <strong>RevenueCat</strong> to tell us whether a subscription is active for your user ID; see the <a href="https://www.revenuecat.com/privacy">RevenueCat privacy policy</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>3. What we do not do</h2>
+    <ul>
+      <li>No advertising, and no advertising identifiers.</li>
+      <li>No analytics or tracking SDKs.</li>
+      <li>No selling or sharing of personal data with anyone, for any purpose.</li>
+      <li>No profiling, and no automated decisions with legal effect.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Permissions</h2>
+    <ul>
+      <li><strong>Camera</strong> — to photograph a garment. Only when you open the camera.</li>
+      <li><strong>Photos</strong> — to pick an existing picture, and to save one if you ask.</li>
+    </ul>
+    <p>Both are asked for in context, and refusing either leaves the rest of the app working.</p>
+  </div>
+
+  <div class="card">
+    <h2>5. How long anything is kept</h2>
+    <ul>
+      <li><strong>Garment images sent for processing:</strong> held in memory for the length of the request, then discarded. Never written to disk.</li>
+      <li><strong>Account record:</strong> until you delete your account.</li>
+      <li><strong>Usage counts:</strong> until you delete your account, or the service restarts.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>6. Deleting your account</h2>
+    <p>Open <strong>Settings ▸ Delete account</strong> in the app. Your account and the usage counts held against it are deleted for good. Your wardrobe is on your phone and stays there; remove the app if you want that gone too.</p>
+    <p>Full instructions are on the <a href="../delete-account/">account deletion page</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>7. Your rights</h2>
+    <p>If you are in the EU or UK, you may request access to, correction of, or erasure of your personal data, object to processing, or ask for a copy in portable form. Write to <a href="mailto:pivotmasterapps@gmail.com">pivotmasterapps@gmail.com</a>. You also have the right to complain to your local data protection authority.</p>
+    <p>We process your account data to provide the service you asked for (contract), and to stop the paid features being abused (legitimate interests).</p>
+  </div>
+
+  <div class="card">
+    <h2>8. Children</h2>
+    <p>Virtual Closet is not directed at children under 13, and we do not knowingly collect their data.</p>
+  </div>
+
+  <div class="card">
+    <h2>9. Changes</h2>
+    <p>If what leaves your device ever changes, this page changes with it, and the date at the top moves.</p>
+  </div>
+</div>
+
+<footer>
+  <a href="../">Home</a>
+  <a href="../terms/">Terms</a>
+  <a href="../delete-account/">Delete account</a>
+  <a href="mailto:pivotmasterapps@gmail.com">Support</a>
+</footer>
+</body>
+</html>

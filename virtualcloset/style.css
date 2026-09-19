@@ -1,0 +1,69 @@
+/* Virtual Closet — the app's own palette, so the site and the product read as
+   the same thing. Paper and ink, garments are the only colour. */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #F6F3EE;
+  --surface: #FFFFFF;
+  --ink: #14110F;
+  --ink-soft: #5B534B;
+  --muted: #9A928A;
+  --line: #E4DED4;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+header { padding: 72px 24px 40px; text-align: center; }
+header .eyebrow {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+header h1 {
+  font-size: 2.4rem; font-weight: 300; letter-spacing: -0.02em;
+  margin: 14px 0 10px;
+}
+header .meta { color: var(--muted); font-size: 0.85rem; }
+header a.back { color: var(--ink-soft); text-decoration: none; font-size: 0.85rem; }
+header a.back:hover { color: var(--ink); }
+
+.container { max-width: 760px; margin: 0 auto; padding: 8px 24px 96px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 34px 36px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px;
+}
+h3 { font-size: 1rem; font-weight: 600; margin: 22px 0 8px; }
+p { margin-bottom: 14px; color: var(--ink-soft); }
+p strong, li strong { color: var(--ink); font-weight: 600; }
+ul { margin: 0 0 14px 20px; color: var(--ink-soft); }
+li { margin-bottom: 8px; }
+a { color: var(--ink); }
+
+.lede { font-size: 1.05rem; color: var(--ink); }
+
+footer {
+  text-align: center; padding: 36px 24px 64px;
+  color: var(--muted); font-size: 0.82rem;
+}
+footer a { color: var(--ink-soft); text-decoration: none; margin: 0 10px; }
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 560px) {
+  header { padding: 48px 20px 28px; }
+  header h1 { font-size: 1.9rem; }
+  .card { padding: 26px 22px; border-radius: 18px; }
+}
