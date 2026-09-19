@@ -124,7 +124,7 @@
   <header>
     <a href="../" class="back-link">&#8592; Back to PDF Scanner Pro</a>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective Date: September 16, 2026 &nbsp;|&nbsp; Last Updated: September 17, 2026</p>
+    <p class="meta">Effective Date: September 16, 2026 &nbsp;|&nbsp; Last Updated: September 19, 2026</p>
   </header>
 
   <div class="container">
@@ -149,10 +149,13 @@
       <ul>
         <li><strong>Usage analytics</strong> — anonymous events such as which tools are used and how often (no file names, paths, or document content are included)</li>
         <li><strong>Device information</strong> — device model, OS version, app version, and screen resolution</li>
+        <li><strong>Remote configuration</strong> — the app asks Firebase Remote Config for its current settings, which lets us change configuration without shipping an update. The request carries app and device details, not anything about your documents</li>
+        <li><strong>App integrity</strong> — before the app may call our Enhanced OCR server, Google Play Integrity issues it a token attesting that the app and the device are genuine. This protects the server from abuse and does not identify you</li>
       </ul>
 
       <h3>2.3 Purchase Information</h3>
       <p>If you upgrade to PDF Scanner Pro Premium, your purchase is processed entirely through <strong>Google Play</strong>. We receive confirmation of your purchase status but do not receive or store your payment card details.</p>
+      <p>We use <strong>RevenueCat</strong> to keep track of whether your subscription is active, so that Premium works across your devices and is restored correctly after a reinstall. The app sends RevenueCat a purchase identifier and an anonymous app user id; it is not sent your name, your email address, or anything about your documents.</p>
 
       <h3>2.4 Advertising</h3>
       <p>The free version of the app displays advertisements served by <strong>Google AdMob</strong>. AdMob may collect and use data (such as a device advertising ID) to serve personalized or contextual ads. Please refer to Google's Privacy Policy for details on how AdMob handles data.</p>
@@ -191,6 +194,15 @@
       <p>If you open a password-protected PDF or apply password protection to one, the password is used in memory on your device solely to decrypt or encrypt that document. We do not store, log, or transmit document passwords, and we have no ability to recover a password you have lost.</p>
     </div>
 
+      <h3>4.2 Permissions the App Requests</h3>
+      <p>The app asks for two permissions, each at the moment the feature that needs it is used. Declining one disables only that feature.</p>
+      <ul>
+        <li><strong>Camera</strong> — to photograph pages with the document scanner. The capture runs on your device and the frames are not sent anywhere. The app is fully usable without it if you only import existing files.</li>
+        <li><strong>Notifications</strong> — to tell you when a background job, such as text recognition on a long document, has finished.</li>
+      </ul>
+      <p>The app requests no broad storage permission: files are opened and saved through Android's own file picker.</p>
+    </div>
+
     <div class="card">
       <h2>5. Third-Party Services</h2>
       <p>PDF Scanner Pro integrates the following third-party services. Each has its own privacy policy:</p>
@@ -199,6 +211,10 @@
         <li><strong>Firebase Authentication (Google)</strong> — optional sign-in, only if you use it. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
         <li><strong>Google Cloud Storage &amp; Cloud Firestore</strong> — storage of documents you choose to back up, and their details. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
         <li><strong>Google Cloud Vision</strong> — text recognition for the optional Enhanced OCR feature. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+        <li><strong>Google ML Kit</strong> — runs the document scanner and the ordinary on-device text recognition. It works entirely on your device and sends nothing to Google. <a href="https://developers.google.com/ml-kit/terms" target="_blank">ML Kit Terms</a></li>
+        <li><strong>Firebase Remote Config</strong> — remote configuration of the app. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+        <li><strong>Firebase App Check with Google Play Integrity</strong> — proves to our server that requests come from a genuine copy of the app. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+        <li><strong>RevenueCat</strong> — records whether your subscription is active. <a href="https://www.revenuecat.com/privacy/" target="_blank">RevenueCat Privacy Policy</a></li>
         <li><strong>Google AdMob</strong> — advertisement delivery for free-tier users. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
         <li><strong>Google Play Billing</strong> — in-app purchase and subscription management. <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice" target="_blank">Google Play Terms</a></li>
       </ul>
@@ -215,6 +231,15 @@
         <li>Documents you back up are stored under your own account, and security rules prevent any other account from reading them</li>
       </ul>
       <p>However, no method of data transmission or storage is 100% secure. We cannot guarantee absolute security of data transmitted over the internet.</p>
+
+      <h3>6.1 How Long We Keep Data</h3>
+      <ul>
+        <li><strong>Documents you back up</strong> — until you delete the document, or delete your account.</li>
+        <li><strong>Your account details</strong> — until you delete your account, which removes them immediately.</li>
+        <li><strong>Page images sent for Enhanced OCR</strong> — not retained. They are read and discarded once the text is returned. We keep only a per-day counter against your account so the daily limit can be applied, and that counter is deleted with your account.</li>
+        <li><strong>Analytics events</strong> — 14 months, the Google Analytics default, after which they are deleted automatically.</li>
+        <li><strong>Everything held only on your device</strong> — until you delete it in the app or uninstall the app.</li>
+      </ul>
     </div>
 
     <div class="card">
@@ -252,7 +277,7 @@
 
     <div class="card">
       <h2>10. International Data Transfers</h2>
-      <p>Our third-party service providers (Google Firebase, AdMob) may process data in countries outside your own, including the United States. By using PDF Scanner Pro, you consent to your data being transferred to and processed in these countries, which may have different data protection laws than your jurisdiction.</p>
+      <p>Our third-party service providers (Google Firebase, Google Cloud, AdMob and RevenueCat) may process data in countries outside your own, including the United States. By using PDF Scanner Pro, you consent to your data being transferred to and processed in these countries, which may have different data protection laws than your jurisdiction.</p>
     </div>
 
     <div class="card">
