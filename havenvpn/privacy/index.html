@@ -49,6 +49,13 @@
           </tr>
         
           <tr>
+            <td><strong>App integrity check</strong></td>
+            <td>When you connect</td>
+            <td>To confirm the app is the genuine version from Google Play and protect our servers from abuse</td>
+            <td>Google Play Integrity and Firebase App Check (our servers receive only a yes/no token)</td>
+          </tr>
+        
+          <tr>
             <td><strong>Advertising ID</strong></td>
             <td>In the free version</td>
             <td>To show and measure advertising</td>
@@ -82,7 +89,7 @@
     
     <div class="block">
       <h2>3. Processing that happens only on your device</h2>
-      <p>Haven VPN uses Android's VpnService to create an encrypted WireGuard® tunnel from your device to a Haven server, which forwards your traffic to the internet. Apps you exclude with split tunnelling bypass the VPN.</p><p><strong>What our VPN servers do not store:</strong> the websites you visit, the content of your traffic, your DNS queries, connection logs, or your original IP address. Your IP address is held in server memory for a few minutes only, to rate-limit connection attempts.</p><p><strong>What our VPN servers store while you are connected:</strong> your device's WireGuard public key (generated on your device; the private key never leaves it), the anonymous purchase ID used to check whether you have Pro, the private tunnel address assigned to you, and when your session ends. These are deleted automatically when the session ends.</p><p>When Shield is on, DNS lookups are resolved by Cloudflare's malware-blocking resolver (1.1.1.2); otherwise by Cloudflare's public resolver (1.1.1.1). See Cloudflare's privacy policy for its resolver.</p><p>The VPN is used only to secure your connection and hide your IP address. It is never used to show, block or modify ads in other apps.</p>
+      <p>Haven VPN uses Android's VpnService to create an encrypted WireGuard® tunnel from your device to a Haven server, which forwards your traffic to the internet. Apps you exclude with split tunnelling bypass the VPN.</p><p><strong>What our VPN servers do not store:</strong> the websites you visit, the content of your traffic, your DNS queries, connection logs, or your original IP address. Your IP address is held in server memory for a few minutes only, to rate-limit connection attempts.</p><p><strong>What our VPN servers store while you are connected:</strong> your device's WireGuard public key (generated on your device; the private key never leaves it), the anonymous purchase ID used to check whether you have Pro, the private tunnel address assigned to you, and when your session ends. For free sessions the server also counts how much data the session has used, to apply the free fair-use limits (speed and data per session). All of these are deleted automatically when the session ends.</p><p><strong>Abuse protection:</strong> when you connect, the app asks Google Play, through Firebase App Check and the Play Integrity API, to confirm that it is the genuine Haven VPN installed from Google Play. Our servers receive only a signed yes/no token that expires within an hour; they do not receive or store device details. Copies of the app that cannot be verified still work, on reduced free-tier limits.</p><p>When Shield is on, DNS lookups are resolved by Cloudflare's malware-blocking resolver (1.1.1.2); otherwise by Cloudflare's public resolver (1.1.1.1). See Cloudflare's privacy policy for its resolver.</p><p>The VPN is used only to secure your connection and hide your IP address. It is never used to show, block or modify ads in other apps.</p>
     </div>
     
 
@@ -145,11 +152,15 @@
       <p>The app relies on the following services. Each has its own privacy policy:</p>
       <ul>
         
-        <li><strong>DigitalOcean</strong> — hosts the Haven VPN servers (<a href="https://www.digitalocean.com/legal/privacy-policy" rel="noopener">privacy policy</a>)</li>
+        <li><strong>DigitalOcean</strong> — hosts Haven VPN servers (<a href="https://www.digitalocean.com/legal/privacy-policy" rel="noopener">privacy policy</a>)</li>
+        
+        <li><strong>Vultr</strong> — hosts Haven VPN servers in additional countries (<a href="https://www.vultr.com/legal/privacy/" rel="noopener">privacy policy</a>)</li>
         
         <li><strong>Cloudflare DNS (1.1.1.1 / 1.1.1.2)</strong> — resolves DNS lookups made through the VPN (<a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/" rel="noopener">privacy policy</a>)</li>
         
         <li><strong>Google AdMob</strong> — serves the ads in the free version (<a href="https://policies.google.com/privacy" rel="noopener">privacy policy</a>)</li>
+        
+        <li><strong>Google Play Integrity and Firebase App Check</strong> — confirm that connections come from the genuine Haven VPN app (<a href="https://firebase.google.com/support/privacy" rel="noopener">privacy policy</a>)</li>
         
         <li><strong>Google Firebase (Analytics, Remote Config, Crashlytics)</strong> — anonymous usage analytics, remote configuration and crash reports (<a href="https://firebase.google.com/support/privacy" rel="noopener">privacy policy</a>)</li>
         
